@@ -454,104 +454,54 @@
                     </div>
                 </div>
             </div>
-        </section>
+  <section id="my-solution">
+    <h2>Ma Solution : Un Mode de Vie Sain et Durable !</h2>
 
-        <section id="my-solution">
-            <div class="container">
-                <h2>Ma Solution : Un Mode de Vie Sain et Durable !</h2>
-            </div>
-           <style>
-     .carousel-container {
-      width: 100vw;
-      height: 100vh;
-      position: relative;
-      overflow: hidden;
+    <div class="carousel-wrapper">
+      <div class="carousel-container">
+        <div class="carousel-slide" id="carousel-slide">
+          <img src="https://raw.githubusercontent.com/Bonnienewshape/Evaluation-bien-etre/refs/heads/main/1.jpg" alt="Image 1">
+          <img src="https://raw.githubusercontent.com/Bonnienewshape/Evaluation-bien-etre/refs/heads/main/2.jpg" alt="Image 2">
+          <img src="https://raw.githubusercontent.com/Bonnienewshape/Evaluation-bien-etre/refs/heads/main/3.jpg" alt="Image 3">
+          <img src="https://raw.githubusercontent.com/Bonnienewshape/Evaluation-bien-etre/refs/heads/main/4.jpg" alt="Image 4">
+          <img src="https://raw.githubusercontent.com/Bonnienewshape/Evaluation-bien-etre/refs/heads/main/5.jpg" alt="Image 5">
+        </div>
+        <button class="carousel-btn prev-btn" onclick="moveSlide(-1)">&#10094;</button>
+        <button class="carousel-btn next-btn" onclick="moveSlide(1)">&#10095;</button>
+      </div>
+    </div>
+
+    <div class="solution-text-wrapper">
+      <p>Un suivi poussé, un programme personnalisé, adapté à vos besoins et à votre budget !</p>
+      <div class="solution-grid">
+        <div class="solution-bubble">
+          <h3>Nutrition Optimale</h3>
+          <p>Des plans simples, gourmands, et complets avec les produits Herbalife pour des apports parfaits.</p>
+        </div>
+        <div class="solution-bubble">
+          <h3>Coaching Ultra-Personnalisé</h3>
+          <p>Je vous accompagne pas à pas, ajustant le programme à vos besoins et célébrant chaque succès.</p>
+        </div>
+        <div class="solution-bubble">
+          <h3>Soutien Dynamique</h3>
+          <p>Intégrez une communauté motivante. Ensemble, on va plus loin et plus vite !</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    let currentIndex = 0;
+    const slide = document.getElementById('carousel-slide');
+    const totalSlides = slide.children.length;
+
+    function moveSlide(direction) {
+      currentIndex += direction;
+      if (currentIndex < 0) currentIndex = totalSlides - 1;
+      if (currentIndex >= totalSlides) currentIndex = 0;
+      slide.style.transform = `translateX(-${currentIndex * 100}%)`;
     }
-
-    .carousel-slide {
-      display: flex;
-      height: 100%;
-      transition: transform 0.5s ease-in-out;
-    }
-
-    .carousel-slide img {
-      flex: 0 0 100%;
-      width: 100%;
-      height: 100%;
-      object-fit: contain; /* Affiche toute l’image sans la couper */
-      background-color: #fff;
-    }
-
-
-.carousel-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 2rem;
-  background-color: rgba(255, 255, 255, 0.7);
-  border: none;
-  cursor: pointer;
-  z-index: 10;
-  padding: 0.5rem 1rem;
-}
-
-.prev-btn {
-  left: 0;
-}
-
-.next-btn {
-  right: 0;
-}
-  @media (max-width: 768px) {
-    .carousel-slide img {
-      max-height: 250px;
-    }
-  }
-</style>
-
-<div class="carousel-container">
-  <div class="carousel-slide" id="carousel-slide">
-    <img src="https://raw.githubusercontent.com/Bonnienewshape/Evaluation-bien-etre/refs/heads/main/1.jpg" alt="Wedo Image 1">
-    <img src="https://raw.githubusercontent.com/Bonnienewshape/Evaluation-bien-etre/refs/heads/main/2.jpg" alt="Wedo Image 2">
-    <img src="https://raw.githubusercontent.com/Bonnienewshape/Evaluation-bien-etre/refs/heads/main/3.jpg" alt="Wedo Image 3">
-    <img src="https://raw.githubusercontent.com/Bonnienewshape/Evaluation-bien-etre/refs/heads/main/4.jpg" alt="Wedo Image 4">
-    <img src="https://raw.githubusercontent.com/Bonnienewshape/Evaluation-bien-etre/refs/heads/main/5.jpg" alt="Wedo Image 5">
-  </div>
-  <button class="carousel-btn prev-btn" onclick="moveSlide(-1)">&#10094;</button>
-  <button class="carousel-btn next-btn" onclick="moveSlide(1)">&#10095;</button>
-</div>
-
-<script>
-  let currentIndex = 0;
-  const slide = document.getElementById('carousel-slide');
-  const totalSlides = slide.children.length;
-
-  function moveSlide(direction) {
-    currentIndex += direction;
-    if (currentIndex < 0) currentIndex = totalSlides - 1;
-    if (currentIndex >= totalSlides) currentIndex = 0;
-    slide.style.transform = `translateX(-${currentIndex * 100}%)`;
-  }
-</script>
-
-            <div class="container solution-text-wrapper">
-                <p>Un suivi poussé, un programme personnalisé, adapté à vos besoins et à votre budget !</p>
-                <div class="solution-grid">
-                    <div class="solution-bubble">
-                        <h3>Nutrition Optimale</h3>
-                        <p>Des plans simples, gourmands, et complets avec les produits Herbalife pour des apports parfaits.</p>
-                    </div>
-                    <div class="solution-bubble">
-                        <h3>Coaching Ultra-Personnalisé</h3>
-                        <p>Je vous accompagne pas à pas, ajustant le programme à vos besoins et célébrant chaque succès.</p>
-                    </div>
-                    <div class="solution-bubble">
-                        <h3>Soutien Dynamique</h3>
-                        <p>Intégrez une communauté motivante. Ensemble, on va plus loin et plus vite !</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+  </script>
         
         <section id="process">
             <div class="container">
