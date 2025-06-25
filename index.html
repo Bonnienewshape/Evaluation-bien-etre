@@ -466,6 +466,7 @@
   max-width: 100%;
   margin: auto;
   overflow: hidden;
+  aspect-ratio: 16 / 9; /* Force ratio largeur/hauteur */
 }
 
 .carousel-slide {
@@ -476,7 +477,7 @@
 .carousel-slide img {
   flex: 0 0 100%;
   width: 100%;
-  height: auto; /* 👈 hauteur naturelle */
+  height: 600px;   /* plus haute */
   object-fit: contain;
   display: block;
   background-color: #fff;
