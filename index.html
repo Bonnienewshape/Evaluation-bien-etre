@@ -477,8 +477,9 @@
     flex: 0 0 100%; /* 👈 chaque image prend 100% de largeur visible */
     width: 100%;
     height: auto;
-    max-height: 400px;
-    object-fit: cover;
+    object-fit: contain;
+    display: block;
+    background-color: #fff;
   }
 
   .carousel-btn {
