@@ -460,11 +460,73 @@
             <div class="container">
                 <h2>Ma Solution : Un Mode de Vie Sain et Durable !</h2>
             </div>
-            <div class="container" style="text-align: center;"> 
-                <img src="https://images.unsplash.com/photo-1543353071-873f17a7a088?q=80&w=2070&auto=format&fit=crop" alt="Assiette saine et colorée">
-            </div>
+            <style>
+  .carousel-container {
+    position: relative;
+    max-width: 100%;
+    margin: auto;
+    overflow: hidden;
+    text-align: center;
+  }
+
+  .carousel-slide {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 500%;
+  }
+
+  .carousel-slide img {
+    width: 100%;
+    flex: 1 0 100%;
+  }
+
+  .carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    background-color: rgba(255, 255, 255, 0.7);
+    border: none;
+    cursor: pointer;
+    z-index: 10;
+    padding: 0.5rem 1rem;
+  }
+
+  .prev-btn {
+    left: 0;
+  }
+
+  .next-btn {
+    right: 0;
+  }
+</style>
+
+<div class="carousel-container">
+  <div class="carousel-slide" id="carousel-slide">
+    <img src="https://images.unsplash.com/photo-1543353071-873f17a7a088?q=80&w=2070&auto=format&fit=crop" alt="Image 1">
+    <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=2070&auto=format&fit=crop" alt="Image 2">
+    <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?q=80&w=2070&auto=format&fit=crop" alt="Image 3">
+    <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?q=80&w=2070&auto=format&fit=crop" alt="Image 4">
+    <img src="https://images.unsplash.com/photo-1572449043416-55f4685c9bbf?q=80&w=2070&auto=format&fit=crop" alt="Image 5">
+  </div>
+  <button class="carousel-btn prev-btn" onclick="moveSlide(-1)">&#10094;</button>
+  <button class="carousel-btn next-btn" onclick="moveSlide(1)">&#10095;</button>
+</div>
+
+<script>
+  let currentIndex = 0;
+  const slide = document.getElementById('carousel-slide');
+  const totalSlides = 5;
+
+  function moveSlide(direction) {
+    currentIndex += direction;
+    if (currentIndex < 0) currentIndex = totalSlides - 1;
+    if (currentIndex >= totalSlides) currentIndex = 0;
+    slide.style.transform = `translateX(-${currentIndex * 100}%)`;
+  }
+</script>
             <div class="container solution-text-wrapper">
-                <p>Un suivi poussé, un programme personnalisé et adapté à vos besoins et à votre budget !</p>
+                <p>Un suivi poussé, un programme personnalisé, adapté à vos besoins et à votre budget !</p>
                 <div class="solution-grid">
                     <div class="solution-bubble">
                         <h3>Nutrition Optimale</h3>
