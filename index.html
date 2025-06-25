@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Votre Nouvelle Vie Commence Ici | Coach Bien-être Herbalife</title>
     <style>
         /* --- Polices et Styles Généraux --- */
@@ -28,13 +28,12 @@
             line-height: 1.6;
             color: var(--dark-color);
             background-color: var(--white-color);
-            /* overflow-x: hidden;  This can sometimes hide legitimate content; removing for now */
         }
 
         .container {
             max-width: 1100px;
             margin: auto;
-            overflow: hidden; /* Helps contain child elements */
+            overflow: hidden;
             padding: 0 2rem;
         }
 
@@ -43,13 +42,13 @@
         }
 
         h1, h2 {
-            font-weight: 700; /* Plus impactant */
+            font-weight: 700;
             margin-bottom: 1rem;
             text-align: center;
         }
 
         h1 {
-            font-size: 4rem; /* Encore plus grand pour le héros */
+            font-size: 4rem;
             line-height: 1.1;
         }
 
@@ -82,11 +81,10 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.3);
             transition: all 0.3s ease-in-out;
             animation: pulse 2s infinite;
-            /* Ensure text stays within the button and wraps if needed */
-            white-space: normal; /* Allow text to wrap */
-            word-wrap: break-word; /* Break long words */
-            max-width: 180px; /* Limit width to prevent overflow on smaller screens */
-            text-align: center; /* Center the text within the button */
+            white-space: normal;
+            word-wrap: break-word;
+            max-width: 180px;
+            text-align: center;
         }
 
         .floating-cta a:hover {
@@ -103,7 +101,7 @@
 
         /* --- Section Héros --- */
         .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover;
             color: white;
             height: 100vh;
             display: flex;
@@ -112,7 +110,7 @@
             align-items: center;
             text-align: center;
             padding: 0 1rem;
-            background-size: cover; /* Ensure background image covers the whole area */
+            background-size: cover;
         }
 
         .hero h1 {
@@ -149,6 +147,7 @@
         #frustrations {
             background-color: var(--light-color);
         }
+
         .frustration-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -156,6 +155,7 @@
             margin-top: 2rem;
             text-align: center;
         }
+
         .frustration-card {
             background: white;
             padding: 2.5rem;
@@ -163,73 +163,136 @@
             box-shadow: 0 5px 20px rgba(0,0,0,0.08);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
+
         .frustration-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 8px 25px rgba(0,0,0,0.1);
         }
+
         .frustration-card i {
             font-size: 3.5rem;
             color: var(--accent-color);
             margin-bottom: 1.2rem;
         }
+
         .frustration-card h3 {
             font-size: 1.5rem;
             color: var(--primary-color);
             margin-bottom: 0.8rem;
         }
 
-        /* --- Section Ma Solution --- */
+        /* --- Section Ma Solution avec Carrousel --- */
         #my-solution {
+            position: relative;
             background-color: var(--white-color);
+            padding: 0;
+            overflow: hidden;
         }
-        .solution-content {
+
+        #my-solution > h2 {
+            padding-top: 4rem;
+        }
+
+        .carousel-wrapper {
+            position: relative;
+            width: 100vw;
+            height: 70vh;
+            max-height: 600px;
+            margin: 0 auto;
+            overflow: hidden;
+            background-color: #000;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .carousel-container {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .carousel-slide {
             display: flex;
-            flex-direction: column; /* Stack image and text on top of each other */
+            height: 100%;
+            transition: transform 0.5s ease-in-out;
+            will-change: transform;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            user-select: none;
+            pointer-events: none;
+            flex-shrink: 0;
+            background-color: #000;
+        }
+
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(255,255,255,0.6);
+            border: none;
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            cursor: pointer;
+            font-size: 2rem;
+            color: var(--primary-color);
+            transition: background-color 0.3s ease;
+            display: flex;
+            justify-content: center;
             align-items: center;
-            gap: 3rem; /* Adjusted gap */
-            margin-top: 3rem;
+            user-select: none;
+            z-index: 10;
         }
-        .solution-content img {
-            width: 100%; /* Image fills container, no more full viewport width */
-            max-width: 800px; /* Max width to control size */
-            height: 400px; /* Set a fixed height or adjust as needed */
-            object-fit: cover; /* Ensure image covers the area without distortion */
-            border-radius: 15px; /* Bring back rounded corners */
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1); /* Bring back shadow */
-            margin-bottom: 2rem; /* Add some space below the image */
+
+        .carousel-btn:hover {
+            background-color: var(--primary-color);
+            color: white;
         }
+
+        .prev-btn {
+            left: 15px;
+        }
+
+        .next-btn {
+            right: 15px;
+        }
+
         .solution-text-wrapper {
-            max-width: 900px; /* Constrain text width for readability */
-            margin: 0 auto; /* Center the text block */
-            padding: 0 2rem; /* Add padding to prevent text touching edges */
+            max-width: 900px;
+            margin: 2rem auto 4rem;
+            padding: 0 2rem;
+            text-align: center;
         }
-        .solution-content h2 {
-            text-align: center; /* Center align title for solution section */
-            margin-bottom: 1.5rem;
-        }
+
         .solution-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem; /* Spacing between bubbles */
+            gap: 2rem;
             margin-top: 2rem;
         }
+
         .solution-bubble {
             background: var(--light-color);
             padding: 2.5rem;
-            border-radius: 20px; /* More rounded for bubble effect */
+            border-radius: 20px;
             box-shadow: 0 5px 20px rgba(0,0,0,0.08);
             text-align: center;
         }
+
         .solution-bubble h3 {
             font-size: 1.6rem;
             color: var(--primary-color);
             margin-bottom: 1rem;
         }
+
         .solution-bubble p {
             font-size: 1.1rem;
             margin-bottom: 0;
         }
-
 
         /* --- Section "Comment ça marche" --- */
         #process {
@@ -358,21 +421,6 @@
             .hero p { font-size: 1.4rem; }
             .hero .btn { padding: 15px 30px; font-size: 1.1rem; }
             
-            .solution-content {
-                flex-direction: column;
-                gap: 2rem;
-            }
-            .solution-content img {
-                height: 300px; /* Adjust height for mobile */
-                width: 90%; /* Adjust width to fit within container */
-            }
-            .solution-text-wrapper {
-                padding: 0 1rem; /* Adjust padding for mobile */
-            }
-            .solution-bubble {
-                padding: 2rem;
-            }
-
             .about-content {
                 flex-direction: column;
                 text-align: center;
@@ -386,11 +434,15 @@
             .floating-cta a {
                 padding: 14px 20px;
                 font-size: 1rem;
-                max-width: 170px; /* Adjusted to fit the text better on smaller screens */
+                max-width: 170px;
             }
             .floating-cta {
                 bottom: 20px;
                 right: 20px;
+            }
+
+            .solution-text-wrapper {
+                padding: 0 1rem;
             }
         }
 
@@ -405,20 +457,20 @@
             .process-step .circle { width: 70px; height: 70px; font-size: 2.5rem; }
             .floating-cta a {
                 padding: 12px 16px;
-                font-size: 0.85rem; /* Slightly smaller font size */
-                max-width: 150px; /* Further limit width for very small screens */
+                font-size: 0.85rem;
+                max-width: 150px;
             }
             .floating-cta {
                 bottom: 15px;
                 right: 15px;
             }
-            .solution-content img {
-                height: 250px; /* Further adjust height for very small mobile */
+            .carousel-wrapper {
+                height: 50vh;
+                max-height: 350px;
             }
         }
-
     </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
 </head>
 <body>
 
@@ -454,73 +506,62 @@
                     </div>
                 </div>
             </div>
-  <section id="my-solution">
-    <h2>Ma Solution : Un Mode de Vie Sain et Durable !</h2>
+        </section>
 
-    <div class="carousel-wrapper">
-      <div class="carousel-container">
-        <div class="carousel-slide" id="carousel-slide">
-          <img src="https://raw.githubusercontent.com/Bonnienewshape/Evaluation-bien-etre/refs/heads/main/1.jpg" alt="Image 1">
-          <img src="https://raw.githubusercontent.com/Bonnienewshape/Evaluation-bien-etre/refs/heads/main/2.jpg" alt="Image 2">
-          <img src="https://raw.githubusercontent.com/Bonnienewshape/Evaluation-bien-etre/refs/heads/main/3.jpg" alt="Image 3">
-          <img src="https://raw.githubusercontent.com/Bonnienewshape/Evaluation-bien-etre/refs/heads/main/4.jpg" alt="Image 4">
-          <img src="https://raw.githubusercontent.com/Bonnienewshape/Evaluation-bien-etre/refs/heads/main/5.jpg" alt="Image 5">
-        </div>
-        <button class="carousel-btn prev-btn" onclick="moveSlide(-1)">&#10094;</button>
-        <button class="carousel-btn next-btn" onclick="moveSlide(1)">&#10095;</button>
-      </div>
-    </div>
+        <section id="my-solution">
+          <h2>Ma Solution : Un Mode de Vie Sain et Durable !</h2>
 
-    <div class="solution-text-wrapper">
-      <p>Un suivi poussé, un programme personnalisé, adapté à vos besoins et à votre budget !</p>
-      <div class="solution-grid">
-        <div class="solution-bubble">
-          <h3>Nutrition Optimale</h3>
-          <p>Des plans simples, gourmands, et complets avec les produits Herbalife pour des apports parfaits.</p>
-        </div>
-        <div class="solution-bubble">
-          <h3>Coaching Ultra-Personnalisé</h3>
-          <p>Je vous accompagne pas à pas, ajustant le programme à vos besoins et célébrant chaque succès.</p>
-        </div>
-        <div class="solution-bubble">
-          <h3>Soutien Dynamique</h3>
-          <p>Intégrez une communauté motivante. Ensemble, on va plus loin et plus vite !</p>
-        </div>
-      </div>
-    </div>
-  </section>
+          <div class="carousel-wrapper">
+            <div class="carousel-container">
+              <div class="carousel-slide" id="carousel-slide">
+                <img src="https://raw.githubusercontent.com/Bonnienewshape/Evaluation-bien-etre/refs/heads/main/1.jpg" alt="Image 1" />
+                <img src="https://raw.githubusercontent.com/Bonnienewshape/Evaluation-bien-etre/refs/heads/main/2.jpg" alt="Image 2" />
+                <img src="https://raw.githubusercontent.com/Bonnienewshape/Evaluation-bien-etre/refs/heads/main/3.jpg" alt="Image 3" />
+                <img src="https://raw.githubusercontent.com/Bonnienewshape/Evaluation-bien-etre/refs/heads/main/4.jpg" alt="Image 4" />
+                <img src="https://raw.githubusercontent.com/Bonnienewshape/Evaluation-bien-etre/refs/heads/main/5.jpg" alt="Image 5" />
+              </div>
+              <button class="carousel-btn prev-btn" onclick="moveSlide(-1)">&#10094;</button>
+              <button class="carousel-btn next-btn" onclick="moveSlide(1)">&#10095;</button>
+            </div>
+          </div>
 
-  <script>
-    let currentIndex = 0;
-    const slide = document.getElementById('carousel-slide');
-    const totalSlides = slide.children.length;
+          <div class="solution-text-wrapper">
+            <p>Un suivi poussé, un programme personnalisé, adapté à vos besoins et à votre budget !</p>
+            <div class="solution-grid">
+              <div class="solution-bubble">
+                <h3>Nutrition Optimale</h3>
+                <p>Des plans simples, gourmands, et complets avec les produits Herbalife pour des apports parfaits.</p>
+              </div>
+              <div class="solution-bubble">
+                <h3>Coaching Ultra-Personnalisé</h3>
+                <p>Je vous accompagne pas à pas, ajustant le programme à vos besoins et célébrant chaque succès.</p>
+              </div>
+              <div class="solution-bubble">
+                <h3>Soutien Dynamique</h3>
+                <p>Intégrez une communauté motivante. Ensemble, on va plus loin et plus vite !</p>
+              </div>
+            </div>
+          </div>
+        </section>
 
-    function moveSlide(direction) {
-      currentIndex += direction;
-      if (currentIndex < 0) currentIndex = totalSlides - 1;
-      if (currentIndex >= totalSlides) currentIndex = 0;
-      slide.style.transform = `translateX(-${currentIndex * 100}%)`;
-    }
-  </script>
-        
         <section id="process">
             <div class="container">
-                <h2>Votre Succès en 3 Étapes Clés</h2>
+                <h2>Comment ça marche ?</h2>
                 <div class="process-grid">
                     <div class="process-step">
                         <div class="circle">1</div>
-                        <h3>Bilan Offert & Personnalisé</h3>
-                        <p>Remplissez le formulaire, on discute de vos objectifs. C'est simple, rapide et sans engagement !</p>
+                        <h3>Bilan Gratuit</h3>
+                        <p>Échangeons pour comprendre vos besoins, envies, et objectifs.</p>
                     </div>
                     <div class="process-step">
                         <div class="circle">2</div>
-                        <h3>Votre Programme Sur Mesure</h3>
-                        <p>Nutrition, sport... je conçois un plan unique, parfaitement adapté à votre vie et vos ambitions.</p>
+                        <h3>Programme Personnalisé</h3>
+                        <p>Je crée un plan sur-mesure avec nutrition, coaching, et produits adaptés.</p>
                     </div>
                     <div class="process-step">
                         <div class="circle">3</div>
-                        <h3>Suivi Continu & Résultats Assurés</h3>
-                        <p>Je suis votre coach. On avance ensemble. Préparez-vous à une transformation spectaculaire !</p>
+                        <h3>Soutien Continu</h3>
+                        <p>Je vous accompagne chaque semaine pour ajuster et motiver.</p>
                     </div>
                 </div>
             </div>
@@ -528,47 +569,52 @@
 
         <section id="testimonials">
             <div class="container">
-                <h2>Ils ont réussi. Pourquoi pas vous ?</h2>
+                <h2>Témoignages</h2>
                 <div class="testimonials-grid">
                     <div class="testimonial-card">
-                        <p class="quote">"Incroyable ! J'ai perdu 10 kg en 3 mois sans faim ni frustration. J'ai retrouvé une énergie dingue. Merci pour ce coaching en or !"</p>
-                        <p class="author">- Luigi, 31 ans</p>
+                        <p class="quote">"Grâce à ce coaching, j'ai retrouvé mon énergie et perdu 8 kg durablement. Je recommande à 100% !"</p>
+                        <p class="author">- Sophie D.</p>
                     </div>
                     <div class="testimonial-card">
-                        <p class="quote">"En tant que sportif, je cherchais l'optimisation. Grâce au programme, mon endurance et ma masse musculaire ont explosé. Les résultats sont bluffants !"</p>
-                        <p class="author">- Marc, 28 ans</p>
+                        <p class="quote">"Un programme personnalisé qui s'adapte vraiment à mon rythme de vie. Merci Bonnie !"</p>
+                        <p class="author">- Mathieu R.</p>
                     </div>
-                     <div class="testimonial-card">
-                        <p class="quote">"Juste un immense MERCI ! Deux grossesses m'avaient laissée à plat. Le suivi et la motivation du groupe m'ont fait perdre 15kg et retrouver confiance en moi. Une nouvelle vie !"</p>
-                        <p class="author">- Amélie, 39 ans</p>
+                    <div class="testimonial-card">
+                        <p class="quote">"La communauté est ultra motivante, ça change tout dans la réussite."</p>
+                        <p class="author">- Clara T.</p>
                     </div>
                 </div>
             </div>
         </section>
-        
+
         <section id="about-me">
-            <div class="container">
-                 <h2>Le coaching au service de vos objectifs</h2>
-                 <div class="about-content">
-                     <img src="https://raw.githubusercontent.com/Bonnienewshape/Evaluation-bien-etre/main/Bonnie_photo.jpeg" alt="photo bonnie" >
-                     <div>
-                        <h3>Bonjour, moi c'est Bonnie !</h3>
-                        <p>J'ai moi-même traversé des phases de doute concernant mon énergie et mon poids. La découverte d'une meilleure nutrition a été un déclic! Les changements ont été si profonds! -10kg, mon corps d'avant grossesse et tellement d'énergie retrouvée que j'ai décidé de consacrer ma vie à vous accompagner vers la même transformation.</p>
-                        <p>Mon engagement est simple : vous aider à révéler la meilleure version de vous-même. L'atteinte de vos objectifs est ma plus belle récompense.</p>
-                     </div>
-                 </div>
+            <div class="container about-content">
+                <img src="https://raw.githubusercontent.com/Bonnienewshape/Evaluation-bien-etre/refs/heads/main/bonnie.jpg" alt="Bonnie" />
+                <div>
+                    <h3>Qui suis-je ?</h3>
+                    <p>Je suis Bonnie, coach bien-être passionnée par la nutrition et le développement personnel. Ma mission est de vous aider à retrouver énergie, confiance et équilibre durablement.</p>
+                    <p>Avec Herbalife, je vous propose un accompagnement sur-mesure, alliant produits de qualité et coaching humain, adapté à vos besoins uniques.</p>
+                </div>
             </div>
         </section>
-
     </main>
-    
+
     <footer>
-        <div class="container">
-            <p>Membre Indépendant Herbalife Nutrition</p>
-            <p>&copy; 2025 MIDI Bonnie - Tous droits réservés.</p>
-            <p><small>Toutes les références au contrôle de poids sont liées au programme de contrôle de poids Herbalife Nutrition qui inclut, entre autres, une alimentation équilibrée, une activité physique régulière, une consommation d'eau quotidienne adéquate, des compléments nutritionnels si nécessaire et un repos suffisant. Les résultats peuvent varier d'une personne à l'autre.</small></p>
-        </div>
+        <p>© 2025 Bonnie NewShape - Coaching Bien-être Herbalife</p>
+        <small>Les résultats peuvent varier selon les individus. Ce site n'est pas affilié officiellement à Herbalife.</small>
     </footer>
 
+    <script>
+        let currentIndex = 0;
+        const slide = document.getElementById('carousel-slide');
+        const totalSlides = slide.children.length;
+
+        function moveSlide(direction) {
+            currentIndex += direction;
+            if (currentIndex < 0) currentIndex = totalSlides - 1;
+            if (currentIndex >= totalSlides) currentIndex = 0;
+            slide.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
+    </script>
 </body>
 </html>
