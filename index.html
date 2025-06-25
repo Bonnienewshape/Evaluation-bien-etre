@@ -463,23 +463,25 @@
            <style>
 .carousel-container {
   position: relative;
-  max-width: 100%;
-  margin: auto;
+  width: 100%;
+  height: 100vh; /* 👈 prend toute la hauteur de l’écran */
   overflow: hidden;
-  aspect-ratio: 16 / 9; /* Force ratio largeur/hauteur */
 }
 
 .carousel-slide {
   display: flex;
   transition: transform 0.5s ease-in-out;
+  height: 100%;
 }
 
 .carousel-slide img {
+  flex: 0 0 100%;
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: contain; /* 👈 affiche l’image entière sans la couper */
+  display: block;
+  background-color: #fff;
 }
-
 
 .carousel-btn {
   position: absolute;
